@@ -3,11 +3,11 @@ import setuptools
 with open('README.md', 'r',encoding='utf-8') as f:
     long_discreption = f.read()
 
-__version__ = '0.0.0'
+__version__ = '0.0.1'
 
 REPO_NAME = 'ML_Project_Two'
 AUTHOR_USER_NAME = 'RohitDas92'
-SRC_REPO = 'text_summerizer'
+SRC_REPO = 'text_summarizer'
 AUTHOR_EMAIL = 'rhtdas1992@gmail.com'
 
 setuptools.setup(
