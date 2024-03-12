@@ -2,6 +2,7 @@ from src.text_summarizer.pipeline.stage_01_data_ingestion import DataIngestionTr
 from src.text_summarizer.pipeline.stage_02_data_validation import DataValidationTrainingPipeline
 from src.text_summarizer.pipeline.stage_03_data_transformation import DataTransformationTrainingPipeline
 from src.text_summarizer.pipeline.stage_04_model_trainer import ModelTrainerTrainingPipeline
+from src.text_summarizer.pipeline.stage_05_model_evaluation import ModelEvaluationTrainingPipeline
 from src.text_summarizer.logging import logger
 from src.text_summarizer.custom_exception import CustomExeption
 import sys
@@ -38,11 +39,22 @@ except Exception as e:
     raise CustomExeption(e,sys)
 
 
-stage_name = 'Data Transformation Stage'
+stage_name = 'Model Training Statge'
 
 try:
     logger.info(f'{stage_name} Started')
     model_trainer = ModelTrainerTrainingPipeline()
+    model_trainer.main()
+    logger.info(f'{stage_name} Completed')
+except Exception as e:
+    raise CustomExeption(e,sys)
+
+
+stage_name = 'Model Evaluation Stage'
+
+try:
+    logger.info(f'{stage_name} Started')
+    model_trainer = ModelEvaluationTrainingPipeline()
     model_trainer.main()
     logger.info(f'{stage_name} Completed')
 except Exception as e:
